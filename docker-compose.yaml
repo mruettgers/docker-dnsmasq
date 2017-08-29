@@ -1,0 +1,14 @@
+version: '2'
+services:
+  dnsmasq:
+    cap_add:
+     - NET_ADMIN
+    image: mruettgers/dnsmasq
+    ports:
+     - "53:53"
+     - "53:53/udp"
+    restart: always
+    volumes:
+     - dnsmasq-config:/etc/dnsmasq.d
+volumes:
+  dnsmasq-config:
